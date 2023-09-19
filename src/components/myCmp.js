@@ -20,19 +20,24 @@ const MyCmp = () => {
     return new Promise((resolve, reject) => {
 
       setTimeout(() => {
+
+        // You can switch the argument in "resolve()" to "{}" to get the <No Data/> component  
+        // You can switch the argument in "resolve()" to "null" to get the <Error/> component  
         resolve(weatherData);
       }, 2000);
     });
   };
 
   useEffect(() => {
-    
+
     // A function that fetches data while handling the state changes
     const fetchData = async () => {
       try {
         setIsLoading(true);
         setIsError(false)
         const response = await getData();
+
+        // Reading the cod key from the weatherData sent
         setData(response.cod)
       } catch (error) {
         setIsError(true)
@@ -57,7 +62,7 @@ const MyCmp = () => {
     // This is the default component if none of the conditions above are met
     return <NoData />;
   };
-  
+
   // Here we call the function that will return the rendered component
   return <div>{renderContent()}</div>;
 }

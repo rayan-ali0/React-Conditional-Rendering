@@ -42,7 +42,7 @@ const MyCmp = () => {
 
       }
     }
-      // Running the functioj
+    // Running the fetchData function
     fetchData()
 
   }, [])
